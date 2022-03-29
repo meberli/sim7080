@@ -1,6 +1,5 @@
 #!/usr/bin/python
 
-import RPi.GPIO as GPIO
 import serial
 import time
 import redis
@@ -9,44 +8,46 @@ import logging
 import argparse
 import os
 from logging.config import fileConfig
-
+from getmac import get_mac_address
 
 CONFIG_BASE_PATH = 'conf/'
 LOGGING_CONFIG = 'logging.conf'
 
-ser = serial.Serial('/dev/ttyS0', 9600)
-ser.flushInput()
+
 
 powerKey = 4
 rec_buff = ''
 Message = 'gateway.uno'
-
-def get_mac_address():
-    res = ''
-    with open('/sys/class/net/eth0/address', 'r') as reader:
-        res = reader.read()
-    return res.rstrip()
+ 
 
 def power_on():
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
-    GPIO.setup(powerKey, GPIO.OUT)
-    time.sleep(0.1)
-    GPIO.output(powerKey, GPIO.HIGH)
-    time.sleep(1)
-    GPIO.output(powerKey, GPIO.LOW)
-    time.sleep(5)
-    ser.flushInput()
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        GPIO.setup(powerKey, GPIO.OUT)
+        time.sleep(0.1)
+        GPIO.output(powerKey, GPIO.HIGH)
+        time.sleep(1)
+        GPIO.output(powerKey, GPIO.LOW)
+        time.sleep(5)
+    finally:
+        logger.error('GPIO not available')
+        ser.flushInput()
+        return
 
 
 def power_down(powerKey):
-    GPIO.setmode(GPIO.BCM)
-    GPIO.setwarnings(False)
-    GPIO.setup(powerKey, GPIO.OUT)
-    GPIO.output(powerKey, GPIO.HIGH)
-    time.sleep(2)
-    GPIO.output(powerKey, GPIO.LOW)
-    time.sleep(5)
+    try:
+        GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
+        GPIO.setup(powerKey, GPIO.OUT)
+        GPIO.output(powerKey, GPIO.HIGH)
+        time.sleep(2)
+        GPIO.output(powerKey, GPIO.LOW)
+        time.sleep(5)
+    finally:
+        logger.exception('GPIO not available')
+        return
 
 def is_running():
     # simcom module uart may be fool,so it is better to send much times when it starts.
@@ -113,8 +114,7 @@ def connect_mqtt():
             send_at('AT+SMDISC', 'OK', 1)
             send_at('AT+CNACT=0,0', 'OK', 1)
             ser.close()
-        powerDown(powerKey)
-        GPIO.cleanup()
+        power_down(powerKey)
 
 
 def write_file(filename):
@@ -212,6 +212,7 @@ if __name__ == '__main__':
 
     parser_test= subparsers.add_parser('connect', help="send downlink to device")
     
+    parser.add_argument("--port", help="serial port for modem", type=str,required=True)
     parser.add_argument("--config_dir", default = CONFIG_BASE_PATH, help="relative path to configuration files.", type=str)
     parser.add_argument("-v", "--verbose", help="increase output verbosity",
                     action="store_true")
@@ -234,8 +235,19 @@ if __name__ == '__main__':
     if args.test:
             logger.info("Test mode - not sending anything...")
     
-    # initialize
+    # initialize redis
     r = redis.StrictRedis('localhost', 6379, charset="utf-8", decode_responses=True)
+    
+    # initialize serial
+    ser = serial.Serial(args.port, 9600)
+    ser.flushInput()
+
+    # initialize gpio
+    try :
+        import RPi.GPIO as GPIO
+    except:     
+        logger.warning('Unable to import Rpi.GPIO')
+    
     mac_addr = get_mac_address()
     logger.info(f'mac addr is :\'{mac_addr}\'')
 
