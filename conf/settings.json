@@ -1,0 +1,13 @@
+{
+    "mqtt_server_host": "mqtttest.gateway.uno",
+    "mqtt_server_port": 1884,
+    "mqtt_clientid": "testclient",
+    "mqtt_user": "user1",
+    "mqtt_password": "asdf",
+    "mqtt_keeptime": 60,
+    "mqtt_cleanss": 1,
+    "mqtt_qos": 1,
+    "mqtt_auth_type": 44,
+    "mobile_apn": "em",
+    "mobile_catm_nbiot": 1 
+}

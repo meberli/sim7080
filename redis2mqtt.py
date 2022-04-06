@@ -9,6 +9,7 @@ from logging.config import fileConfig
 from getmac import get_mac_address
 import redis
 import serial
+from config import Config
 
 CONFIG_BASE_PATH = 'conf/'
 LOGGING_CONFIG = 'logging.conf'
@@ -86,14 +87,14 @@ def connect_mqtt():
     try:
         logger.info('mqtt conf')
         # send_at('AT+SMCONF=?', 'OK', 1) # get mqtt configuration
-        send_at('AT+SMCONF="CLIENTID","user1"', 'OK', 1)
-        send_at('AT+SMCONF="URL","mqtttest.gateway.uno",1884', 'OK', 1)
+        send_at(f'AT+SMCONF="CLIENTID","{_config["mqtt_clientid"]}"', 'OK', 1)
+        send_at(f'AT+SMCONF="URL","{_config["mqtt_server_host"]}",{_config["mqtt_server_port"]}', 'OK', 1)
         # send_at('AT+SMCONF="URL","137.135.83.217",1883', 'OK', 1)
-        send_at('AT+SMCONF="USERNAME","user1"', 'OK', 1)
-        send_at('AT+SMCONF="PASSWORD","asdf"', 'OK', 1)
-        send_at('AT+SMCONF="KEEPTIME",60', 'OK', 1)
-        send_at('AT+SMCONF="CLEANSS",1', 'OK', 1)
-        send_at('AT+SMCONF="QOS",1', 'OK', 1)
+        send_at(f'AT+SMCONF="USERNAME","{_config["mqtt_user"]}"', 'OK', 1)
+        send_at(f'AT+SMCONF="PASSWORD","{_config["mqtt_password"]}"', 'OK', 1)
+        send_at(f'AT+SMCONF="KEEPTIME",{_config["mqtt_keeptime"]}', 'OK', 1)
+        send_at(f'AT+SMCONF="CLEANSS",{_config["mqtt_cleanss"]}', 'OK', 1)
+        send_at(f'AT+SMCONF="QOS",{_config["mqtt_qos"]}', 'OK', 1)
         # send_at('AT+SMCONF="TOPIC","waveshare_pub"', 'OK', 1)
         # send_at('AT+SMCONF="MESSAGE","SALI"', 'OK', 1)
         # send_at('AT+SMCONF="RETAIN",1', 'OK', 1)
@@ -115,6 +116,18 @@ def connect_mqtt():
         power_down()
 
 
+def ping(hostname):
+    """Pings the host with the SIM7080 module."""
+
+    logger.info(f'{"*"*8} ping {hostname} {"*"*8}')
+    try:
+        send_at(f'AT+CNACT=0,1', 'OK', 1)
+        send_at(f'AT+SNPDPID=0', 'OK', 1)
+        send_at(f'AT+SNPING4="{hostname}",3,16,1000', 'OK', 1)
+        
+    except:
+        logger.exception('Exception while trying ping host')
+
 def write_file(filename):
     """Writes a file to SIM7080 module."""
     logger.info('*'*8 +' writing file' + '*'*8)
@@ -132,12 +145,13 @@ def write_file(filename):
 
 
 def connect_network():
-    """Connecrts SIM7080 module to Network."""
+    global _config
+    """Connects SIM7080 module to Network."""
     logger.info('*'*8 +' connecting to network' + '*'*8)
     logger.info('Preferred Selection between CAT-M and NB-IoT')
-    send_at('AT+CMNB=1', 'OK', 0.5)
+    send_at(f'AT+CMNB={_config["mobile_catm_nbiot"]}', 'OK', 0.5)
     logger.info('PDP Configure')
-    send_at('AT+CNCFG=0,1,\"iot.1nce.net\"', 'OK', 1)
+    send_at(f'AT+CNCFG=0,1,"{_config["mobile_apn"]}"', 'OK', 1)
     logger.info('Get Network APN in CAT-M or NB-IOT')
     send_at('AT+CGNAPN', 'OK', 1)
     logger.info('APP Network Active')
@@ -195,7 +209,7 @@ def info():
     send_at('AT+CGREG?', '+CGREG: 0,1', 0.5)
     logger.info('SIM Lock')
     send_at('AT+CSIMLOCK?', 'OK', 0.5)
-    logger.info('Enter PIN')
+    logger.info('PIN Status')
     send_at('AT+CPIN?', 'OK', 0.5)
     send_at('AT+CNACT?', 'OK', 1)
     logger.info('Inquiring UE system information')
@@ -231,6 +245,10 @@ if __name__ == '__main__':
 
     print('log config file: ',path_log_config_file)
 
+     # load the config
+    filename = 'conf/settings.json'
+    _config = Config(filename).load_config()
+    print(_config['mqtt_server_host'])
     if args.verbose:
         logging.basicConfig(level=logging.DEBUG)
         logger = logging.getLogger(__name__)
@@ -269,6 +287,8 @@ if __name__ == '__main__':
         logger.info(f'already connected to network. ip is {ip}')
     else:
         connect_network()
+        info()
+        ping("www.google.com")
 
     if args.command == 'write_file':
         write_file(args.filename)

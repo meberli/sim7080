@@ -1,0 +1,1016 @@
+2022-04-06,21:09:44.366 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+2022-04-06,21:09:45.486 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMDISC' failed.expected result is 'OK' but got '
++CPIN: READY
+
+SMS Ready
+AT+SMDISC
+ERROR
+'
+2022-04-06,21:09:46.591 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
+ERROR
+'
+2022-04-06,21:09:46.594 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:09:49.323 INFO     __main__:redis2mqtt.py:259 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:09:49.332 WARNING  __main__:redis2mqtt.py:274 Unable to import Rpi.GPIO
+2022-04-06,21:09:49.336 INFO     __main__:redis2mqtt.py:277 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:09:50.350 INFO     __main__:redis2mqtt.py:280 sim7080 is running..
+2022-04-06,21:09:50.352 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:09:50.354 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:09:51.459 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:09:51.460 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:09:52.564 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:09:52.566 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:09:52.568 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:09:53.172 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:09:53.174 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:09:54.278 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,""' succeeded. returned: 'AT+CNCFG=0,1,""
+OK
+'
+2022-04-06,21:09:54.280 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:09:55.384 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:09:55.386 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:09:56.491 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:09:57.594 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:09:57.596 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:09:58.700 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:09:59.804 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SNPDPID=0' succeeded. returned: 'AT+SNPDPID=0
+OK
+'
+2022-04-06,21:10:00.908 WARNING  __main__:redis2mqtt.py:72  command 'AT+SNPING4="www.google.com",3,16,1000' failed.expected result is 'OK' but got 'AT+SNPING4="www.google.com",3,16,1000
+ERROR
+'
+2022-04-06,21:10:00.909 INFO     __main__:redis2mqtt.py:296 Starting mqtt client
+2022-04-06,21:10:00.910 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:10:00.910 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:10:02.013 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLIENTID","testclient"' succeeded. returned: 'AT+SMCONF="CLIENTID","testclient"
+OK
+'
+2022-04-06,21:10:03.117 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' succeeded. returned: 'AT+SMCONF="URL","mqtttest.gateway.uno",1884
+OK
+'
+2022-04-06,21:10:04.221 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="USERNAME","user1"' succeeded. returned: 'AT+SMCONF="USERNAME","user1"
+OK
+'
+2022-04-06,21:10:05.325 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="PASSWORD","asdf"' succeeded. returned: 'AT+SMCONF="PASSWORD","asdf"
+OK
+'
+2022-04-06,21:10:06.430 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="KEEPTIME",60' succeeded. returned: 'AT+SMCONF="KEEPTIME",60
+OK
+'
+2022-04-06,21:10:07.534 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLEANSS",1' succeeded. returned: 'AT+SMCONF="CLEANSS",1
+OK
+'
+2022-04-06,21:10:08.638 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="QOS",1' succeeded. returned: 'AT+SMCONF="QOS",1
+OK
+'
+2022-04-06,21:10:13.746 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMCONN' failed.expected result is 'OK' but got 'AT+SMCONN
+ERROR
+'
+2022-04-06,21:10:46.717 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+2022-04-06,21:10:47.824 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMDISC' failed.expected result is 'OK' but got 'AT+SMDISC
+ERROR
+'
+2022-04-06,21:10:48.928 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
+ERROR
+'
+2022-04-06,21:10:48.930 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:10:52.098 INFO     __main__:redis2mqtt.py:259 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:10:52.106 WARNING  __main__:redis2mqtt.py:274 Unable to import Rpi.GPIO
+2022-04-06,21:10:52.110 INFO     __main__:redis2mqtt.py:277 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:10:53.124 INFO     __main__:redis2mqtt.py:280 sim7080 is running..
+2022-04-06,21:10:53.126 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:10:53.127 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:10:54.230 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:10:54.232 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:10:55.336 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:10:55.338 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:10:55.339 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:10:55.943 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:10:55.946 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:10:57.051 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:10:57.056 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:10:58.160 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:10:58.162 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:10:59.266 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:11:00.370 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:11:00.372 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:11:01.475 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:11:02.579 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SNPDPID=0' succeeded. returned: 'AT+SNPDPID=0
+OK
+'
+2022-04-06,21:11:03.683 WARNING  __main__:redis2mqtt.py:72  command 'AT+SNPING4="www.google.com",3,16,1000' failed.expected result is 'OK' but got 'AT+SNPING4="www.google.com",3,16,1000
+ERROR
+'
+2022-04-06,21:11:03.685 INFO     __main__:redis2mqtt.py:296 Starting mqtt client
+2022-04-06,21:11:03.687 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:11:03.689 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:11:04.793 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLIENTID","testclient"' succeeded. returned: 'AT+SMCONF="CLIENTID","testclient"
+OK
+'
+2022-04-06,21:11:05.898 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' succeeded. returned: 'AT+SMCONF="URL","mqtttest.gateway.uno",1884
+OK
+'
+2022-04-06,21:11:07.002 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="USERNAME","user1"' succeeded. returned: 'AT+SMCONF="USERNAME","user1"
+OK
+'
+2022-04-06,21:11:08.106 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="PASSWORD","asdf"' succeeded. returned: 'AT+SMCONF="PASSWORD","asdf"
+OK
+'
+2022-04-06,21:11:09.209 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="KEEPTIME",60' succeeded. returned: 'AT+SMCONF="KEEPTIME",60
+OK
+'
+2022-04-06,21:11:10.314 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLEANSS",1' succeeded. returned: 'AT+SMCONF="CLEANSS",1
+OK
+'
+2022-04-06,21:11:11.418 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="QOS",1' succeeded. returned: 'AT+SMCONF="QOS",1
+OK
+'
+2022-04-06,21:11:16.526 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMCONN' failed.expected result is 'OK' but got 'AT+SMCONN
+ERROR
+'
+2022-04-06,21:13:00.120 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+2022-04-06,21:13:01.229 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMDISC' failed.expected result is 'OK' but got '
++CPIN: READY
+
+SMS Ready
+AT+SMDISC
+ERROR
+'
+2022-04-06,21:13:02.333 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
+ERROR
+'
+2022-04-06,21:13:02.336 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:13:04.950 INFO     __main__:redis2mqtt.py:259 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:13:04.960 WARNING  __main__:redis2mqtt.py:274 Unable to import Rpi.GPIO
+2022-04-06,21:13:04.963 INFO     __main__:redis2mqtt.py:277 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:13:05.977 INFO     __main__:redis2mqtt.py:280 sim7080 is running..
+2022-04-06,21:13:05.979 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:13:05.981 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:13:07.085 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:13:07.088 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:13:08.192 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:13:08.194 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:13:08.195 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:13:08.798 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:13:08.800 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:13:09.904 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:13:09.906 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:13:11.010 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:13:11.012 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:13:12.116 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:13:13.220 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:13:13.222 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:13:14.325 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:13:15.429 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SNPDPID=0' succeeded. returned: 'AT+SNPDPID=0
+OK
+'
+2022-04-06,21:13:16.533 WARNING  __main__:redis2mqtt.py:72  command 'AT+SNPING4="www.google.com",3,16,1000' failed.expected result is 'OK' but got 'AT+SNPING4="www.google.com",3,16,1000
+ERROR
+'
+2022-04-06,21:13:16.535 INFO     __main__:redis2mqtt.py:296 Starting mqtt client
+2022-04-06,21:13:16.537 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:13:16.539 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:13:17.644 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLIENTID","testclient"' succeeded. returned: 'AT+SMCONF="CLIENTID","testclient"
+OK
+'
+2022-04-06,21:13:18.748 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' succeeded. returned: 'AT+SMCONF="URL","mqtttest.gateway.uno",1884
+OK
+'
+2022-04-06,21:13:19.851 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="USERNAME","user1"' succeeded. returned: 'AT+SMCONF="USERNAME","user1"
+OK
+'
+2022-04-06,21:13:20.955 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="PASSWORD","asdf"' succeeded. returned: 'AT+SMCONF="PASSWORD","asdf"
+OK
+'
+2022-04-06,21:13:22.059 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="KEEPTIME",60' succeeded. returned: 'AT+SMCONF="KEEPTIME",60
+OK
+'
+2022-04-06,21:13:23.163 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLEANSS",1' succeeded. returned: 'AT+SMCONF="CLEANSS",1
+OK
+'
+2022-04-06,21:13:24.266 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="QOS",1' succeeded. returned: 'AT+SMCONF="QOS",1
+OK
+'
+2022-04-06,21:13:24.809 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 101, in connect_mqtt
+    send_at('AT+SMCONN', 'OK', 5)
+  File "/home/pi/sim7080/./redis2mqtt.py", line 66, in send_at
+    time.sleep(timeout)
+KeyboardInterrupt
+2022-04-06,21:13:25.917 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMDISC' failed.expected result is 'OK' but got 'AT+SMCONN
+ERROR
+AT+SMDISC
+ERROR
+'
+2022-04-06,21:13:27.021 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
+ERROR
+'
+2022-04-06,21:13:27.024 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 101, in connect_mqtt
+    send_at('AT+SMCONN', 'OK', 5)
+  File "/home/pi/sim7080/./redis2mqtt.py", line 66, in send_at
+    time.sleep(timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:15:24.630 INFO     __main__:redis2mqtt.py:259 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:15:24.638 WARNING  __main__:redis2mqtt.py:274 Unable to import Rpi.GPIO
+2022-04-06,21:15:24.642 INFO     __main__:redis2mqtt.py:277 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:15:25.656 INFO     __main__:redis2mqtt.py:280 sim7080 is running..
+2022-04-06,21:15:25.657 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:15:25.658 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:15:26.762 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:15:26.764 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:15:27.868 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:15:27.870 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:15:27.872 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:15:28.475 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:15:28.477 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:15:29.581 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:15:29.582 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:15:30.686 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:15:30.688 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:15:31.792 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:15:32.895 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:15:32.897 INFO     __main__:redis2mqtt.py:201 ******** info ********
+2022-04-06,21:15:34.000 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMEE=2' succeeded. returned: 'AT+CMEE=2
+OK
+'
+2022-04-06,21:15:34.002 INFO     __main__:redis2mqtt.py:204 Signal quality report
+2022-04-06,21:15:35.105 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSQ' succeeded. returned: 'AT+CSQ
++CSQ: 99,99
+
+OK
+'
+2022-04-06,21:15:35.106 INFO     __main__:redis2mqtt.py:206 Inquiring UE system information
+2022-04-06,21:15:36.209 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:15:36.210 INFO     __main__:redis2mqtt.py:208 Network Registration Status
+2022-04-06,21:15:36.813 WARNING  __main__:redis2mqtt.py:72  command 'AT+CGREG?' failed.expected result is '+CGREG: 0,1' but got 'AT+CGREG?
++CGREG: 0,2
+
+OK
+'
+2022-04-06,21:15:36.814 INFO     __main__:redis2mqtt.py:210 SIM Lock
+2022-04-06,21:15:37.423 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSIMLOCK?' succeeded. returned: 'AT+CSIMLOCK?
+OK
+'
+2022-04-06,21:15:37.424 INFO     __main__:redis2mqtt.py:212 Enter PIN
+2022-04-06,21:15:38.028 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPIN?' succeeded. returned: 'AT+CPIN?
++CPIN: READY
+
+OK
+'
+2022-04-06,21:15:39.132 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:15:39.133 INFO     __main__:redis2mqtt.py:215 Inquiring UE system information
+2022-04-06,21:15:40.236 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:15:40.238 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:15:41.341 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:15:42.445 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SNPDPID=0' succeeded. returned: 'AT+SNPDPID=0
+OK
+'
+2022-04-06,21:15:43.548 WARNING  __main__:redis2mqtt.py:72  command 'AT+SNPING4="www.google.com",3,16,1000' failed.expected result is 'OK' but got 'AT+SNPING4="www.google.com",3,16,1000
++CME ERROR: operation not allowed
+'
+2022-04-06,21:15:43.550 INFO     __main__:redis2mqtt.py:297 Starting mqtt client
+2022-04-06,21:15:43.552 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:15:43.554 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:15:44.658 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLIENTID","testclient"' succeeded. returned: 'AT+SMCONF="CLIENTID","testclient"
+OK
+'
+2022-04-06,21:15:45.762 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' succeeded. returned: 'AT+SMCONF="URL","mqtttest.gateway.uno",1884
+OK
+'
+2022-04-06,21:15:46.866 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="USERNAME","user1"' succeeded. returned: 'AT+SMCONF="USERNAME","user1"
+OK
+'
+2022-04-06,21:15:47.283 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 94, in connect_mqtt
+    send_at(f'AT+SMCONF="PASSWORD","{_config["mqtt_password"]}"', 'OK', 1)
+  File "/home/pi/sim7080/./redis2mqtt.py", line 66, in send_at
+    time.sleep(timeout)
+KeyboardInterrupt
+2022-04-06,21:15:48.390 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMDISC' succeeded. returned: 'AT+SMCONF="PASSWORD","asdf"
+OK
+AT+SMDISC
++CME ERROR: operation not allowed
+'
+2022-04-06,21:15:49.494 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
++CME ERROR: operation failed
+'
+2022-04-06,21:15:49.496 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 94, in connect_mqtt
+    send_at(f'AT+SMCONF="PASSWORD","{_config["mqtt_password"]}"', 'OK', 1)
+  File "/home/pi/sim7080/./redis2mqtt.py", line 66, in send_at
+    time.sleep(timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:25:34.574 INFO     __main__:redis2mqtt.py:261 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:25:34.582 WARNING  __main__:redis2mqtt.py:276 Unable to import Rpi.GPIO
+2022-04-06,21:25:34.586 INFO     __main__:redis2mqtt.py:279 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:25:35.600 INFO     __main__:redis2mqtt.py:282 sim7080 is running..
+2022-04-06,21:25:35.601 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:25:35.602 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:25:36.706 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:25:36.707 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:25:37.810 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:25:37.812 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:25:37.813 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:25:38.416 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:25:38.418 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:25:39.521 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:25:39.523 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:25:40.626 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:25:40.628 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:25:41.731 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:25:42.835 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:25:42.837 INFO     __main__:redis2mqtt.py:201 ******** info ********
+2022-04-06,21:25:43.946 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMEE=2' succeeded. returned: 'AT+CMEE=2
+OK
+'
+2022-04-06,21:25:43.947 INFO     __main__:redis2mqtt.py:204 Signal quality report
+2022-04-06,21:25:45.051 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSQ' succeeded. returned: 'AT+CSQ
++CSQ: 99,99
+
+OK
+'
+2022-04-06,21:25:45.052 INFO     __main__:redis2mqtt.py:206 list available operators
+2022-04-06,21:25:46.156 WARNING  __main__:redis2mqtt.py:72  command 'AT+COPS=?' failed.expected result is 'OK' but got 'AT+COPS=?'
+2022-04-06,21:25:46.158 INFO     __main__:redis2mqtt.py:208 Inquiring UE system information
+2022-04-06,21:25:47.161 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPSI?' failed: no response
+2022-04-06,21:25:47.162 INFO     __main__:redis2mqtt.py:210 Network Registration Status
+2022-04-06,21:25:47.665 WARNING  __main__:redis2mqtt.py:80  command 'AT+CGREG?' failed: no response
+2022-04-06,21:25:47.666 INFO     __main__:redis2mqtt.py:212 SIM Lock
+2022-04-06,21:25:48.168 WARNING  __main__:redis2mqtt.py:80  command 'AT+CSIMLOCK?' failed: no response
+2022-04-06,21:25:48.170 INFO     __main__:redis2mqtt.py:214 PIN Status
+2022-04-06,21:25:48.678 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPIN?' failed: no response
+2022-04-06,21:25:49.682 WARNING  __main__:redis2mqtt.py:80  command 'AT+CNACT?' failed: no response
+2022-04-06,21:25:49.683 INFO     __main__:redis2mqtt.py:217 Inquiring UE system information
+2022-04-06,21:25:50.686 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPSI?' failed: no response
+2022-04-06,21:25:50.687 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:25:51.690 WARNING  __main__:redis2mqtt.py:80  command 'AT+CNACT=0,1' failed: no response
+2022-04-06,21:25:52.693 WARNING  __main__:redis2mqtt.py:80  command 'AT+SNPDPID=0' failed: no response
+2022-04-06,21:25:53.695 WARNING  __main__:redis2mqtt.py:80  command 'AT+SNPING4="www.google.com",3,16,1000' failed: no response
+2022-04-06,21:25:53.697 INFO     __main__:redis2mqtt.py:299 Starting mqtt client
+2022-04-06,21:25:53.699 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:25:53.700 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:25:54.703 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="CLIENTID","testclient"' failed: no response
+2022-04-06,21:25:55.705 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' failed: no response
+2022-04-06,21:25:56.708 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="USERNAME","user1"' failed: no response
+2022-04-06,21:25:57.712 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="PASSWORD","asdf"' failed: no response
+2022-04-06,21:25:58.715 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="KEEPTIME",60' failed: no response
+2022-04-06,21:25:59.718 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="CLEANSS",1' failed: no response
+2022-04-06,21:26:00.720 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="QOS",1' failed: no response
+2022-04-06,21:26:05.725 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONN' failed: no response
+2022-04-06,21:26:36.888 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+2022-04-06,21:26:39.949 INFO     __main__:redis2mqtt.py:261 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:26:39.958 WARNING  __main__:redis2mqtt.py:276 Unable to import Rpi.GPIO
+2022-04-06,21:26:39.962 INFO     __main__:redis2mqtt.py:279 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:26:42.968 INFO     __main__:redis2mqtt.py:284 sim7080 is powered off. power on..
+2022-04-06,21:26:42.970 ERROR    __main__:redis2mqtt.py:30  GPIO not available
+2022-04-06,21:26:42.972 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:26:42.973 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:26:43.976 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPSI?' failed: no response
+2022-04-06,21:27:22.829 INFO     __main__:redis2mqtt.py:261 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:27:22.838 WARNING  __main__:redis2mqtt.py:276 Unable to import Rpi.GPIO
+2022-04-06,21:27:22.843 INFO     __main__:redis2mqtt.py:279 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:27:24.859 INFO     __main__:redis2mqtt.py:282 sim7080 is running..
+2022-04-06,21:27:24.860 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:27:24.862 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:27:25.966 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:27:25.968 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:27:27.072 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:27:27.074 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:27:27.076 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:27:27.680 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:27:27.681 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:27:28.784 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:27:28.786 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:27:29.890 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:27:29.891 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:27:30.995 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:27:32.107 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:27:32.109 INFO     __main__:redis2mqtt.py:201 ******** info ********
+2022-04-06,21:27:33.213 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMEE=2' succeeded. returned: 'AT+CMEE=2
+OK
+'
+2022-04-06,21:27:33.215 INFO     __main__:redis2mqtt.py:204 Signal quality report
+2022-04-06,21:27:34.319 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSQ' succeeded. returned: 'AT+CSQ
++CSQ: 99,99
+
+OK
+'
+2022-04-06,21:27:34.321 INFO     __main__:redis2mqtt.py:206 list available operators
+2022-04-06,21:27:35.424 WARNING  __main__:redis2mqtt.py:72  command 'AT+COPS=?' failed.expected result is 'OK' but got 'AT+COPS=?'
+2022-04-06,21:27:35.426 INFO     __main__:redis2mqtt.py:208 Inquiring UE system information
+2022-04-06,21:27:36.428 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPSI?' failed: no response
+2022-04-06,21:27:36.437 INFO     __main__:redis2mqtt.py:210 Network Registration Status
+2022-04-06,21:27:36.941 WARNING  __main__:redis2mqtt.py:80  command 'AT+CGREG?' failed: no response
+2022-04-06,21:27:36.943 INFO     __main__:redis2mqtt.py:212 SIM Lock
+2022-04-06,21:27:37.446 WARNING  __main__:redis2mqtt.py:80  command 'AT+CSIMLOCK?' failed: no response
+2022-04-06,21:27:37.448 INFO     __main__:redis2mqtt.py:214 PIN Status
+2022-04-06,21:27:37.950 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPIN?' failed: no response
+2022-04-06,21:27:38.953 WARNING  __main__:redis2mqtt.py:80  command 'AT+CNACT?' failed: no response
+2022-04-06,21:27:38.955 INFO     __main__:redis2mqtt.py:217 Inquiring UE system information
+2022-04-06,21:27:39.959 WARNING  __main__:redis2mqtt.py:80  command 'AT+CPSI?' failed: no response
+2022-04-06,21:27:39.961 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:27:40.964 WARNING  __main__:redis2mqtt.py:80  command 'AT+CNACT=0,1' failed: no response
+2022-04-06,21:27:41.968 WARNING  __main__:redis2mqtt.py:80  command 'AT+SNPDPID=0' failed: no response
+2022-04-06,21:27:42.971 WARNING  __main__:redis2mqtt.py:80  command 'AT+SNPING4="www.google.com",3,16,1000' failed: no response
+2022-04-06,21:27:42.973 INFO     __main__:redis2mqtt.py:299 Starting mqtt client
+2022-04-06,21:27:42.976 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:27:42.978 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:27:43.982 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="CLIENTID","testclient"' failed: no response
+2022-04-06,21:27:44.985 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' failed: no response
+2022-04-06,21:27:45.989 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="USERNAME","user1"' failed: no response
+2022-04-06,21:27:46.992 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="PASSWORD","asdf"' failed: no response
+2022-04-06,21:27:47.995 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="KEEPTIME",60' failed: no response
+2022-04-06,21:27:48.999 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="CLEANSS",1' failed: no response
+2022-04-06,21:27:50.002 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONF="QOS",1' failed: no response
+2022-04-06,21:27:55.005 WARNING  __main__:redis2mqtt.py:80  command 'AT+SMCONN' failed: no response
+2022-04-06,21:29:45.603 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+2022-04-06,21:29:46.714 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMDISC' failed.expected result is 'OK' but got '
+ERROR
+
++CPIN: READY
+
+SMS Ready
+AT+SMDISC
++CME ERROR: operation not allowed
+'
+2022-04-06,21:29:47.819 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
++CME ERROR: operation failed
+'
+2022-04-06,21:29:47.822 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 109, in connect_mqtt
+    time.sleep(10)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:30:21.710 INFO     __main__:redis2mqtt.py:259 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:30:21.719 WARNING  __main__:redis2mqtt.py:274 Unable to import Rpi.GPIO
+2022-04-06,21:30:21.723 INFO     __main__:redis2mqtt.py:277 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:30:22.736 INFO     __main__:redis2mqtt.py:280 sim7080 is running..
+2022-04-06,21:30:22.738 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:30:22.919 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:30:24.022 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:30:24.024 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:30:25.127 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:30:25.129 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:30:25.130 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:30:25.732 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=3' succeeded. returned: 'AT+CMNB=3
+OK
+'
+2022-04-06,21:30:25.733 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:30:26.836 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:30:26.838 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:30:27.941 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:30:27.942 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:30:29.045 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:30:30.149 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:30:30.150 INFO     __main__:redis2mqtt.py:201 ******** info ********
+2022-04-06,21:30:31.253 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMEE=2' succeeded. returned: 'AT+CMEE=2
+OK
+'
+2022-04-06,21:30:31.255 INFO     __main__:redis2mqtt.py:204 Signal quality report
+2022-04-06,21:30:32.359 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSQ' succeeded. returned: 'AT+CSQ
++CSQ: 99,99
+
+OK
+'
+2022-04-06,21:30:32.360 INFO     __main__:redis2mqtt.py:206 Inquiring UE system information
+2022-04-06,21:30:33.463 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:30:33.464 INFO     __main__:redis2mqtt.py:208 Network Registration Status
+2022-04-06,21:30:34.074 WARNING  __main__:redis2mqtt.py:72  command 'AT+CGREG?' failed.expected result is '+CGREG: 0,1' but got 'AT+CGREG?
++CGREG: 0,2
+
+OK
+'
+2022-04-06,21:30:34.075 INFO     __main__:redis2mqtt.py:210 SIM Lock
+2022-04-06,21:30:34.678 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSIMLOCK?' succeeded. returned: 'AT+CSIMLOCK?
+OK
+'
+2022-04-06,21:30:34.679 INFO     __main__:redis2mqtt.py:212 PIN Status
+2022-04-06,21:30:35.282 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPIN?' succeeded. returned: 'AT+CPIN?
++CPIN: READY
+
+OK
+'
+2022-04-06,21:30:36.386 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:30:36.387 INFO     __main__:redis2mqtt.py:215 Inquiring UE system information
+2022-04-06,21:30:37.490 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:30:37.492 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:30:38.595 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:30:39.699 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SNPDPID=0' succeeded. returned: 'AT+SNPDPID=0
+OK
+'
+2022-04-06,21:30:40.803 WARNING  __main__:redis2mqtt.py:72  command 'AT+SNPING4="www.google.com",3,16,1000' failed.expected result is 'OK' but got 'AT+SNPING4="www.google.com",3,16,1000
++CME ERROR: operation not allowed
+'
+2022-04-06,21:30:40.804 INFO     __main__:redis2mqtt.py:297 Starting mqtt client
+2022-04-06,21:30:40.805 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:30:40.806 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:30:41.909 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLIENTID","testclient"' succeeded. returned: 'AT+SMCONF="CLIENTID","testclient"
+OK
+'
+2022-04-06,21:30:43.013 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' succeeded. returned: 'AT+SMCONF="URL","mqtttest.gateway.uno",1884
+OK
+'
+2022-04-06,21:30:44.116 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="USERNAME","user1"' succeeded. returned: 'AT+SMCONF="USERNAME","user1"
+OK
+'
+2022-04-06,21:30:45.219 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="PASSWORD","asdf"' succeeded. returned: 'AT+SMCONF="PASSWORD","asdf"
+OK
+'
+2022-04-06,21:30:45.558 ERROR    __main__:redis2mqtt.py:111 Exception while trying to connect
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 95, in connect_mqtt
+    send_at(f'AT+SMCONF="KEEPTIME",{_config["mqtt_keeptime"]}', 'OK', 1)
+  File "/home/pi/sim7080/./redis2mqtt.py", line 66, in send_at
+    time.sleep(timeout)
+KeyboardInterrupt
+2022-04-06,21:30:46.664 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMDISC' succeeded. returned: 'AT+SMCONF="KEEPTIME",60
+OK
+AT+SMDISC
++CME ERROR: operation not allowed
+'
+2022-04-06,21:30:47.768 WARNING  __main__:redis2mqtt.py:72  command 'AT+CNACT=0,0' failed.expected result is 'OK' but got 'AT+CNACT=0,0
++CME ERROR: operation failed
+'
+2022-04-06,21:30:47.770 ERROR    __main__:redis2mqtt.py:44  GPIO not available
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 95, in connect_mqtt
+    send_at(f'AT+SMCONF="KEEPTIME",{_config["mqtt_keeptime"]}', 'OK', 1)
+  File "/home/pi/sim7080/./redis2mqtt.py", line 66, in send_at
+    time.sleep(timeout)
+KeyboardInterrupt
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/pi/sim7080/./redis2mqtt.py", line 36, in power_down
+    GPIO.setmode(GPIO.BCM)
+NameError: name 'GPIO' is not defined
+2022-04-06,21:38:27.131 INFO     __main__:redis2mqtt.py:259 using logging conf from /home/pi/sim7080/conf/logging.conf
+2022-04-06,21:38:27.140 WARNING  __main__:redis2mqtt.py:274 Unable to import Rpi.GPIO
+2022-04-06,21:38:27.144 INFO     __main__:redis2mqtt.py:277 mac addr is :'b8:27:eb:f5:30:46'
+2022-04-06,21:38:28.161 INFO     __main__:redis2mqtt.py:280 sim7080 is running..
+2022-04-06,21:38:28.164 INFO     __main__:redis2mqtt.py:181 ******** network check********
+2022-04-06,21:38:28.167 INFO     __main__:redis2mqtt.py:182 Inquiring UE system information
+2022-04-06,21:38:29.272 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:38:29.274 DEBUG    __main__:redis2mqtt.py:187 res_dict: {'System Mode': '+CPSI: NO SERVICE', 'Operation Mode': 'Online'}
+2022-04-06,21:38:30.378 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:38:30.380 INFO     __main__:redis2mqtt.py:150 ******** connecting to network********
+2022-04-06,21:38:30.382 INFO     __main__:redis2mqtt.py:151 Preferred Selection between CAT-M and NB-IoT
+2022-04-06,21:38:30.985 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMNB=2' succeeded. returned: 'AT+CMNB=2
+OK
+'
+2022-04-06,21:38:30.987 INFO     __main__:redis2mqtt.py:153 PDP Configure
+2022-04-06,21:38:32.091 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG=0,1,"em"' succeeded. returned: 'AT+CNCFG=0,1,"em"
+OK
+'
+2022-04-06,21:38:32.094 INFO     __main__:redis2mqtt.py:155 Get Network APN in CAT-M or NB-IOT
+2022-04-06,21:38:33.199 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CGNAPN' succeeded. returned: 'AT+CGNAPN
++CGNAPN: 0,""
+
+OK
+'
+2022-04-06,21:38:33.201 INFO     __main__:redis2mqtt.py:157 APP Network Active
+2022-04-06,21:38:34.305 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNCFG?' succeeded. returned: 'AT+CNCFG?
++CNCFG: 0,1,"em","","",0
++CNCFG: 1,0,"","","",0
++CNCFG: 2,0,"","","",0
++CNCFG: 3,0,"","","",0
+
+OK
+'
+2022-04-06,21:38:35.409 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:38:35.410 INFO     __main__:redis2mqtt.py:201 ******** info ********
+2022-04-06,21:38:36.513 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CMEE=2' succeeded. returned: 'AT+CMEE=2
+OK
+'
+2022-04-06,21:38:36.515 INFO     __main__:redis2mqtt.py:204 Signal quality report
+2022-04-06,21:38:37.620 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSQ' succeeded. returned: 'AT+CSQ
++CSQ: 99,99
+
+OK
+'
+2022-04-06,21:38:37.622 INFO     __main__:redis2mqtt.py:206 Inquiring UE system information
+2022-04-06,21:38:38.726 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:38:38.728 INFO     __main__:redis2mqtt.py:208 Network Registration Status
+2022-04-06,21:38:39.331 WARNING  __main__:redis2mqtt.py:72  command 'AT+CGREG?' failed.expected result is '+CGREG: 0,1' but got 'AT+CGREG?
++CGREG: 0,2
+
+OK
+'
+2022-04-06,21:38:39.334 INFO     __main__:redis2mqtt.py:210 SIM Lock
+2022-04-06,21:38:39.938 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CSIMLOCK?' succeeded. returned: 'AT+CSIMLOCK?
+OK
+'
+2022-04-06,21:38:39.939 INFO     __main__:redis2mqtt.py:212 PIN Status
+2022-04-06,21:38:40.542 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPIN?' succeeded. returned: 'AT+CPIN?
++CPIN: READY
+
+OK
+'
+2022-04-06,21:38:41.645 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT?' succeeded. returned: 'AT+CNACT?
++CNACT: 0,0,"0.0.0.0"
++CNACT: 1,0,"0.0.0.0"
++CNACT: 2,0,"0.0.0.0"
++CNACT: 3,0,"0.0.0.0"
+
+OK
+'
+2022-04-06,21:38:41.647 INFO     __main__:redis2mqtt.py:215 Inquiring UE system information
+2022-04-06,21:38:42.751 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CPSI?' succeeded. returned: 'AT+CPSI?
++CPSI: NO SERVICE,Online
+
+OK
+'
+2022-04-06,21:38:42.754 INFO     __main__:redis2mqtt.py:122 ******** ping www.google.com ********
+2022-04-06,21:38:43.864 DEBUG    __main__:redis2mqtt.py:77  command 'AT+CNACT=0,1' succeeded. returned: 'AT+CNACT=0,1
+OK
+
++APP PDP: 0,DEACTIVE
+'
+2022-04-06,21:38:44.969 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SNPDPID=0' succeeded. returned: 'AT+SNPDPID=0
+OK
+'
+2022-04-06,21:38:46.073 WARNING  __main__:redis2mqtt.py:72  command 'AT+SNPING4="www.google.com",3,16,1000' failed.expected result is 'OK' but got 'AT+SNPING4="www.google.com",3,16,1000
++CME ERROR: operation not allowed
+'
+2022-04-06,21:38:46.074 INFO     __main__:redis2mqtt.py:297 Starting mqtt client
+2022-04-06,21:38:46.076 INFO     __main__:redis2mqtt.py:86  ******** connecting mqtt********
+2022-04-06,21:38:46.078 INFO     __main__:redis2mqtt.py:88  mqtt conf
+2022-04-06,21:38:47.182 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLIENTID","testclient"' succeeded. returned: 'AT+SMCONF="CLIENTID","testclient"
+OK
+'
+2022-04-06,21:38:48.286 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="URL","mqtttest.gateway.uno",1884' succeeded. returned: 'AT+SMCONF="URL","mqtttest.gateway.uno",1884
+OK
+'
+2022-04-06,21:38:49.391 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="USERNAME","user1"' succeeded. returned: 'AT+SMCONF="USERNAME","user1"
+OK
+'
+2022-04-06,21:38:50.495 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="PASSWORD","asdf"' succeeded. returned: 'AT+SMCONF="PASSWORD","asdf"
+OK
+'
+2022-04-06,21:38:51.599 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="KEEPTIME",60' succeeded. returned: 'AT+SMCONF="KEEPTIME",60
+OK
+'
+2022-04-06,21:38:52.702 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="CLEANSS",1' succeeded. returned: 'AT+SMCONF="CLEANSS",1
+OK
+'
+2022-04-06,21:38:53.806 DEBUG    __main__:redis2mqtt.py:77  command 'AT+SMCONF="QOS",1' succeeded. returned: 'AT+SMCONF="QOS",1
+OK
+'
+2022-04-06,21:38:58.914 WARNING  __main__:redis2mqtt.py:72  command 'AT+SMCONN' failed.expected result is 'OK' but got 'AT+SMCONN
++CME ERROR: operation not allowed
+'
