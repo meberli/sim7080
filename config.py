@@ -12,12 +12,18 @@ class Config():
             'mqtt_cleanss',
             'mqtt_qos',
             'mqtt_auth_type',
+            'mqtt_public_topic',
             'mqtt_client_id',
             'mobile_catm_nbiot',
-            'mobile_apn']
+            'mobile_apn',
+            'serial_port',
+            'serial_baud',
+            'serial_default_timeout',
+            'ntp_server_host']
 
     def __init__(self, filename):
         self.filename = filename
+        self.store = None
 
     def load_config(self):
         """

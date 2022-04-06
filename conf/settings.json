@@ -8,6 +8,11 @@
     "mqtt_cleanss": 1,
     "mqtt_qos": 1,
     "mqtt_auth_type": 44,
+    "mqtt_public_topic": "mytopic/data",
     "mobile_apn": "em",
-    "mobile_catm_nbiot": 1 
+    "mobile_catm_nbiot": 1,
+    "serial_port": "/dev/ttyS0",
+    "serial_baud": 9600,
+    "serial_default_timeout": 1, 
+    "ntp_server_host": "ntp11.metas.ch"
 }
